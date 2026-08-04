@@ -1,30 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/sections/hero";
-
-const services = [
-  {
-    number: "01",
-    image: "/images/personnel-service.png",
-    title: "Personel Taşımacılığı",
-    description:
-      "Çalışanlarınızın işe geliş ve gidişlerini güvenli, konforlu ve zamanında sağlıyoruz.",
-  },
-  {
-    number: "02",
-    image: "/images/student-service.png",
-    title: "Okul ve Öğrenci Taşımacılığı",
-    description:
-      "Öğrencilerimizin güvenliği için modern araçlar ve deneyimli kadromuzla hizmetinizdeyiz.",
-  },
-  {
-    number: "03",
-    image: "/images/event-service.png",
-    title: "Etkinlik ve Organizasyon",
-    description:
-      "Toplantı, fuar, gezi ve özel etkinlikleriniz için planlı ulaşım çözümleri sunuyoruz.",
-  },
-];
+import { ServiceShowcase } from "@/components/sections/service-showcase";
 
 const strengths = [
   ["Güvenli Ulaşım", "Araçlarımız düzenli bakımdan geçer ve yasal gerekliliklere uygundur."],
@@ -44,21 +21,7 @@ export default function Home() {
           <h2>İhtiyacınıza uygun taşımacılık çözümleri</h2>
           <p>Her yolculuğu güven, konfor ve dakiklik ilkeleriyle planlıyoruz.</p>
         </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {services.map((service) => (
-            <article key={service.number} className="service-card group">
-              <div className="service-image">
-                <Image src={service.image} alt={service.title} fill sizes="(max-width: 768px) 100vw, 33vw" />
-              </div>
-              <div className="service-content">
-              <div className="service-number">{service.number}</div>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-              <Link href="#iletisim">Detaylı bilgi <span aria-hidden="true">→</span></Link>
-              </div>
-            </article>
-          ))}
-        </div>
+        <ServiceShowcase />
       </section>
 
       <section className="journey-section">
@@ -79,11 +42,12 @@ export default function Home() {
               Karaaslan Turizm hakkında
             </h2>
             <p className="mt-5 leading-7 text-slate-600">
-              Şehir içi taşımacılık alanında personel, öğrenci ve organizasyon
-              ulaşımını güvenle planlıyor; her yolculukta müşteri memnuniyetini
-              ön planda tutuyoruz.
+              2025 yılında kurulan Karaaslan Turizm; personel, öğrenci ve
+              organizasyon taşımacılığında güvenli, planlı ve konforlu çözümler
+              sunmak üzere yola çıktı. Genç ve dinamik yapımızla hizmet ağımızı
+              kontrollü biçimde büyütüyoruz.
             </p>
-            <Link href="#iletisim" className="button-primary mt-7">Bizimle tanışın</Link>
+            <Link href="/kurumsal" className="button-primary mt-7">Bizi tanıyın</Link>
           </div>
           <div className="grid gap-px overflow-hidden rounded-2xl bg-slate-200 sm:grid-cols-2">
             {strengths.map(([title, description], index) => (
@@ -136,7 +100,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
             <a href="tel:+905011744166" className="button-primary">+90 501 174 41 66</a>
-            <a href="mailto:info@karaaslanturizm.com" className="button-outline-dark">E-posta gönderin</a>
+            <a href="mailto:info@karaaslan.com" className="button-outline-dark">info@karaaslan.com</a>
           </div>
         </div>
       </section>
