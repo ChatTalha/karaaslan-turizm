@@ -89,18 +89,29 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="iletisim" className="bg-slate-950 py-20 text-white">
-        <div className="section-wrap grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div>
-            <p className="eyebrow text-red-400">İletişime geçin</p>
-            <h2 className="mt-3 max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl">
-              Size en uygun ulaşım çözümünü birlikte planlayalım.
-            </h2>
-            <p className="mt-5 text-slate-400">Personel, öğrenci veya organizasyon taşımacılığı için teklif alın.</p>
+      <section id="iletisim" className="contact-section">
+        <div className="section-wrap">
+          <div className="contact-heading">
+            <div>
+              <p className="eyebrow text-red-400">İletişime geçin</p>
+              <h2>Yolculuğunuzu birlikte planlayalım.</h2>
+            </div>
+            <p>Personel, öğrenci ve etkinlik taşımacılığı için hızlıca teklif alın. Ekibimize katılmak istiyorsanız şoför başvuru formunu doldurun.</p>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-            <a href="tel:+905011744166" className="button-primary">+90 501 174 41 66</a>
-            <a href="mailto:info@karaaslan.com" className="button-outline-dark">info@karaaslan.com</a>
+          <div className="contact-grid">
+            <a href="tel:+905011744166" className="contact-card">
+              <span>01 / Telefon</span><strong>+90 501 174 41 66</strong><small>Hemen arayın →</small>
+            </a>
+            <a href="mailto:info@karaaslan.com" className="contact-card">
+              <span>02 / E-posta</span><strong>info@karaaslan.com</strong><small>E-posta gönderin →</small>
+            </a>
+            <a href="https://wa.me/905011744166" className="contact-card contact-card-red">
+              <span>03 / WhatsApp</span><strong>Hızlı iletişim</strong><small>Mesaj gönderin →</small>
+            </a>
+          </div>
+          <div className="career-banner">
+            <div><span>Kariyer fırsatı</span><h3>Şoför ekibimize katılmak ister misiniz?</h3><p>Bilgilerinizi kısa formumuzla iletin; uygun pozisyonlarda sizinle iletişime geçelim.</p></div>
+            <Link href="/sofor-basvuru">Başvuru formunu aç <span aria-hidden="true">→</span></Link>
           </div>
         </div>
       </section>
