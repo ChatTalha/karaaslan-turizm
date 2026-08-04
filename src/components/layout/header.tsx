@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const menuGroups = [
   {
@@ -48,20 +48,45 @@ const menuGroups = [
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const closeMobile = () => setMobileOpen(false);
+
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setActiveMenu(null);
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, []);
 
   return (
     <header className="site-header">
       <div className="section-wrap header-inner">
         <Link href="/" aria-label="Karaaslan Turizm ana sayfa" className="logo-window" onClick={closeMobile}>
-          <Image src="/karaaslan-logo.jpeg" alt="Karaaslan Turizm" width={1536} height={1024} priority />
+          <Image src="/karaaslan-logo-transparent.png" alt="Karaaslan Turizm" width={1536} height={1024} priority />
         </Link>
 
         <nav aria-label="Ana menü" className="desktop-nav">
           <Link href="/" className="desktop-home">Ana Sayfa</Link>
           {menuGroups.map((group) => (
-            <details key={group.label} className="mega-item">
-              <summary>{group.label}<span aria-hidden="true">⌄</span></summary>
+            <div
+              key={group.label}
+              className={`mega-item ${activeMenu === group.label ? "is-open" : ""}`}
+              onMouseEnter={() => setActiveMenu(group.label)}
+              onMouseLeave={() => setActiveMenu(null)}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget as Node)) setActiveMenu(null);
+              }}
+            >
+              <button
+                type="button"
+                aria-expanded={activeMenu === group.label}
+                onFocus={() => setActiveMenu(group.label)}
+                onClick={() => setActiveMenu((current) => current === group.label ? null : group.label)}
+              >
+                {group.label}
+              </button>
               <div className="mega-panel">
                 <div className="mega-intro">
                   <span>{group.eyebrow}</span>
@@ -69,19 +94,26 @@ export function Header() {
                 </div>
                 <div className="mega-links">
                   {group.links.map(([label, href], index) => (
-                    <Link key={`${label}-${href}`} href={href} onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")}>
-                      <span>0{index + 1}</span>{label}<b aria-hidden="true">→</b>
+                    <Link key={`${label}-${href}`} href={href} onClick={() => setActiveMenu(null)}>
+                      <span>0{index + 1}</span>{label}
                     </Link>
                   ))}
                 </div>
               </div>
-            </details>
+            </div>
           ))}
         </nav>
 
         <a href="tel:+905011744166" className="header-call">
-          <span>Bizi arayın</span>
-          <strong>+90 501 174 41 66</strong>
+          <span className="header-call-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7.2 3.5 9.6 7.8 7.9 9.5c.9 2.2 2.7 4 4.9 4.9l1.7-1.7 4.3 2.4c.3.2.5.5.4.9-.3 2.3-2.2 4-4.5 4C8.8 20 4 15.2 4 9.3 4 7 5.7 5.1 8 4.8c.4-.1.8.1.9.4Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+          <span className="header-call-copy">
+            <small>Bizi arayın</small>
+            <strong>+90 501 174 41 66</strong>
+          </span>
         </a>
         <button
           type="button"
@@ -103,7 +135,7 @@ export function Header() {
               <summary>{group.label}<span aria-hidden="true">+</span></summary>
               <div>
                 {group.links.map(([label, href]) => (
-                  <Link key={`${label}-${href}`} href={href} onClick={closeMobile}>{label}<span aria-hidden="true">→</span></Link>
+                  <Link key={`${label}-${href}`} href={href} onClick={closeMobile}>{label}</Link>
                 ))}
               </div>
             </details>
