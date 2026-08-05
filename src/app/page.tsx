@@ -102,8 +102,8 @@ export default function Home() {
             <a href="tel:+905011744166" className="contact-card">
               <span>01 / Telefon</span><strong>+90 501 174 41 66</strong><small>Hemen arayın →</small>
             </a>
-            <a href="mailto:info@karaaslan.com" className="contact-card">
-              <span>02 / E-posta</span><strong>info@karaaslan.com</strong><small>E-posta gönderin →</small>
+            <a href="mailto:info@karaaslanturizm.com" className="contact-card">
+              <span>02 / E-posta</span><strong>info@karaaslanturizm.com</strong><small>E-posta gönderin →</small>
             </a>
             <a href="https://wa.me/905011744166" className="contact-card contact-card-red">
               <span>03 / WhatsApp</span><strong>Hızlı iletişim</strong><small>Mesaj gönderin →</small>

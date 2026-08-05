@@ -151,7 +151,7 @@ export default function PersonnelTransportationPage() {
           <h2>Personel ulaşımınızı birlikte planlayalım.</h2>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <a href="tel:+905011744166" className="button-primary">+90 501 174 41 66</a>
-            <a href="mailto:info@karaaslan.com" className="button-outline-dark">info@karaaslan.com</a>
+            <a href="mailto:info@karaaslanturizm.com" className="button-outline-dark">info@karaaslanturizm.com</a>
           </div>
         </div>
       </section>
