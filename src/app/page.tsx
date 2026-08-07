@@ -5,15 +5,95 @@ import { ServiceShowcase } from "@/components/sections/service-showcase";
 
 const strengths = [
   ["Güvenli Ulaşım", "Araçlarımız düzenli bakımdan geçer ve yasal gerekliliklere uygundur."],
-  ["Zamanında Hizmet", "Planlanan saatlere bağlı, aksama yaşamadan hizmet sunuyoruz."],
+  ["Zamanında Hizmet", "Planlanan saatlere bağlı, aksama yaşanmadan hizmet sunuyoruz."],
   ["Deneyimli Kadro", "Alanında uzman şoför ve operasyon ekibimizle yanınızdayız."],
   ["Şehir İçi Hizmet", "İstanbul şehir içi taşımacılık ihtiyaçlarına özel çözümler üretiyoruz."],
+];
+
+const gallery = [
+  {
+    image: "/images/home/school-fiat.webp",
+    label: "Okul taşımacılığı",
+    title: "Öğrenciler için kontrollü ulaşım",
+  },
+  {
+    image: "/images/home/event-arrival.webp",
+    label: "Etkinlik transferi",
+    title: "Organizasyonlara zamanında varış",
+  },
+  {
+    image: "/images/home/event-wedding.webp",
+    label: "Özel günler",
+    title: "Misafirlerinize konforlu transfer",
+  },
+  {
+    image: "/images/home/city-traffic.webp",
+    label: "Şehir içi operasyon",
+    title: "İstanbul trafiğinde planlı hizmet",
+  },
 ];
 
 export default function Home() {
   return (
     <main>
       <Hero />
+
+      <section id="kurumsal" className="home-about">
+        <div className="section-wrap home-about-grid">
+          <div className="home-about-copy">
+            <p className="eyebrow">Hakkımızda</p>
+            <h2>Kurumların güvenle tercih ettiği ulaşım ortağı.</h2>
+            <p>
+              Karaaslan Turizm, personel servis taşımacılığı alanında güvenilir,
+              planlı ve profesyonel hizmet sunmak amacıyla 2025 yılında faaliyete
+              başladı. İstanbul&apos;daki ulaşım süreçlerini güven, disiplin ve
+              sorumluluk ilkeleriyle yönetiyoruz.
+            </p>
+            <p>
+              Modern araç filomuz, düzenli bakımları yapılan servis araçlarımız ve
+              deneyimli sürücü kadromuzla her iş birliğini uzun vadeli bir ortaklık
+              olarak görüyoruz.
+            </p>
+            <div className="home-about-actions">
+              <Link href="/kurumsal" className="button-primary">Bizi tanıyın</Link>
+              <span>Güvenilir hizmet<br />Zamanında ulaşım</span>
+            </div>
+          </div>
+
+          <div className="home-about-media">
+            <div className="home-about-photo home-about-photo-main">
+              <Image
+                src="/images/home/about-team.webp"
+                alt="Karaaslan Turizm ekibi ve servis araçları"
+                fill
+                sizes="(max-width: 900px) 100vw, 52vw"
+              />
+            </div>
+            <div className="home-about-photo home-about-photo-detail">
+              <Image
+                src="/images/home/about-driver.webp"
+                alt="Karaaslan Turizm sürücüsü İstanbul güzergâhında"
+                fill
+                sizes="(max-width: 900px) 46vw, 270px"
+              />
+            </div>
+            <div className="home-about-stamp">
+              <strong>2025</strong>
+              <span>İstanbul&apos;da<br />güvenle yoldayız</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="section-wrap home-strengths">
+          {strengths.map(([title, description], index) => (
+            <article key={title}>
+              <span>0{index + 1}</span>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section id="hizmetler" className="section-wrap py-20">
         <div className="section-heading">
@@ -25,39 +105,17 @@ export default function Home() {
       </section>
 
       <section className="journey-section">
-        <Image src="/images/safe-driving.png" alt="Karaaslan Turizm ile İstanbul'da güvenli yolculuk" fill sizes="100vw" />
+        <Image
+          src="/images/home/journey-coast.webp"
+          alt="Karaaslan Turizm servis aracı İstanbul sahil yolunda"
+          fill
+          sizes="100vw"
+        />
         <div className="journey-overlay" />
         <div className="section-wrap journey-content">
           <p className="eyebrow text-red-400">Her yolculukta güven</p>
           <h2>Deneyimli sürücüler,<br />kontrollü araçlar.</h2>
           <p>İstanbul&apos;un her noktasında planlı, güvenli ve konforlu ulaşım.</p>
-        </div>
-      </section>
-
-      <section id="kurumsal" className="border-y border-slate-200 bg-white py-20">
-        <div className="section-wrap grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-          <div>
-            <p className="eyebrow">Kurumsal</p>
-            <h2 className="mt-3 text-4xl font-bold tracking-tight text-slate-950">
-              Karaaslan Turizm hakkında
-            </h2>
-            <p className="mt-5 leading-7 text-slate-600">
-              2025 yılında kurulan Karaaslan Turizm; personel, öğrenci ve
-              organizasyon taşımacılığında güvenli, planlı ve konforlu çözümler
-              sunmak üzere yola çıktı. Genç ve dinamik yapımızla hizmet ağımızı
-              kontrollü biçimde büyütüyoruz.
-            </p>
-            <Link href="/kurumsal" className="button-primary mt-7">Bizi tanıyın</Link>
-          </div>
-          <div className="grid gap-px overflow-hidden rounded-2xl bg-slate-200 sm:grid-cols-2">
-            {strengths.map(([title, description], index) => (
-              <div key={title} className="bg-slate-50 p-7">
-                <span className="text-sm font-bold text-brand">0{index + 1}</span>
-                <h3 className="mt-3 text-lg font-bold text-slate-950">{title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -67,21 +125,45 @@ export default function Home() {
           <h2>Modern ve konforlu servis araçları</h2>
           <p>Farklı kapasite ihtiyaçlarına uygun, bakımlı ve konforlu araç seçenekleri.</p>
         </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
+        <div className="fleet-grid">
           <article className="fleet-card">
-            <div className="fleet-image"><Image src="/images/mercedes-sprinter.png" alt="Mercedes Sprinter servis aracı" fill sizes="(max-width: 768px) 100vw, 50vw" /></div>
+            <div className="fleet-image"><Image src="/images/home/fleet-mercedes.webp" alt="Mercedes Sprinter servis aracı" fill sizes="(max-width: 900px) 100vw, 34vw" /></div>
             <div className="fleet-copy"><p className="eyebrow">19+1 yolcu</p><h3>Mercedes Sprinter</h3><span>Yüksek konfor ve geniş iç hacim</span></div>
           </article>
           <article className="fleet-card">
-            <div className="fleet-image"><Image src="/images/fiat-ducato.png" alt="Fiat Ducato servis aracı" fill sizes="(max-width: 768px) 100vw, 50vw" /></div>
+            <div className="fleet-image"><Image src="/images/home/fleet-fiat.webp" alt="Fiat Ducato servis aracı" fill sizes="(max-width: 900px) 100vw, 34vw" /></div>
             <div className="fleet-copy"><p className="eyebrow">16+1 yolcu</p><h3>Fiat Ducato</h3><span>Şehir içi ulaşım için ideal çözüm</span></div>
+          </article>
+          <article className="fleet-card fleet-card-wide">
+            <div className="fleet-image"><Image src="/images/home/fleet-duo.webp" alt="Karaaslan Turizm Mercedes ve Fiat araç filosu" fill sizes="(max-width: 900px) 100vw, 34vw" /></div>
+            <div className="fleet-copy"><p className="eyebrow">Esnek kapasite</p><h3>Kurumsal araç filosu</h3><span>İhtiyacınıza uygun araç ve güzergâh planlaması</span></div>
           </article>
         </div>
       </section>
 
-      <section className="section-wrap pb-20">
+      <section className="operations-section">
+        <div className="section-wrap">
+          <div className="operations-heading">
+            <div>
+              <p className="eyebrow">Sahada Karaaslan</p>
+              <h2>Her hizmet için özenli planlama.</h2>
+            </div>
+            <p>Okul servisinden özel organizasyonlara kadar her operasyonu yolcu profiline ve programınıza göre hazırlıyoruz.</p>
+          </div>
+          <div className="operations-gallery">
+            {gallery.map((item, index) => (
+              <article key={item.image} className={index === 0 ? "operations-card operations-card-large" : "operations-card"}>
+                <Image src={item.image} alt={item.title} fill sizes="(max-width: 720px) 100vw, 50vw" />
+                <div><span>{item.label}</span><h3>{item.title}</h3></div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-wrap route-section">
         <div className="route-banner">
-          <Image src="/images/istanbul-route.png" alt="Karaaslan Turizm aracı İstanbul sahil yolunda" fill sizes="100vw" />
+          <Image src="/images/home/route-bosphorus.webp" alt="Karaaslan Turizm araçları İstanbul Boğazı güzergâhında" fill sizes="100vw" />
           <div className="route-copy">
             <span>İstanbul&apos;un her noktasına</span>
             <strong>Güvenle yoldayız.</strong>

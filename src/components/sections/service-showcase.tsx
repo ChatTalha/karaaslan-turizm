@@ -9,7 +9,7 @@ const services = [
     number: "01",
     slug: "personel",
     href: "/personel-tasimaciligi",
-    image: "/images/personnel-service.png",
+    image: "/images/home/corporate-fleet.webp",
     title: "Personel Taşımacılığı",
     short: "Çalışanlarınız için güvenli, konforlu ve zamanında ulaşım.",
     description:
@@ -20,7 +20,7 @@ const services = [
     number: "02",
     slug: "okul",
     href: "/okul-tasimaciligi",
-    image: "/images/student-service.png",
+    image: "/images/home/school-mercedes.webp",
     title: "Okul Taşımacılığı",
     short: "Öğrenciler için dikkatli, planlı ve güven veren servis hizmeti.",
     description:
@@ -31,7 +31,7 @@ const services = [
     number: "03",
     slug: "etkinlik",
     href: "/etkinlik-tasimaciligi",
-    image: "/images/event-service.png",
+    image: "/images/home/event-boarding.webp",
     title: "Etkinlik Hizmeti",
     short: "Toplantı, fuar ve organizasyonlara özel ulaşım planlaması.",
     description:

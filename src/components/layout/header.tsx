@@ -8,6 +8,10 @@ const menuGroups = [
   {
     label: "Kurumsal",
     eyebrow: "Karaaslan'ı tanıyın",
+    images: [
+      { src: "/images/menu/corporate-building.webp", alt: "Karaaslan Turizm kurumsal yapı" },
+      { src: "/images/menu/corporate-contract.webp", alt: "Kurumsal iş birliği sözleşmesi" },
+    ],
     links: [
       ["Hakkımızda", "/kurumsal#hakkimizda"],
       ["Misyon ve Vizyon", "/kurumsal#misyon-vizyon"],
@@ -20,6 +24,10 @@ const menuGroups = [
   {
     label: "Hizmetler",
     eyebrow: "Ulaşım çözümleri",
+    images: [
+      { src: "/images/menu/services-journey.webp", alt: "Karaaslan Turizm servis aracı" },
+      { src: "/images/menu/services-overview.webp", alt: "Personel, okul ve etkinlik taşımacılığı" },
+    ],
     links: [
       ["Personel Taşımacılığı", "/personel-tasimaciligi"],
       ["Okul Taşımacılığı", "/okul-tasimaciligi"],
@@ -29,6 +37,10 @@ const menuGroups = [
   {
     label: "Filomuz",
     eyebrow: "Modern araçlar",
+    images: [
+      { src: "/images/menu/fleet-night.webp", alt: "Karaaslan Turizm araç filosu" },
+      { src: "/images/menu/fleet-sunset.webp", alt: "Mercedes ve Fiat servis araçları" },
+    ],
     links: [
       ["Mercedes Sprinter 19+1", "/#filomuz"],
       ["Fiat Ducato 16+1", "/#filomuz"],
@@ -38,6 +50,10 @@ const menuGroups = [
   {
     label: "İletişim",
     eyebrow: "Bize ulaşın",
+    images: [
+      { src: "/images/menu/contact-support.webp", alt: "Karaaslan Turizm iletişim desteği" },
+      { src: "/images/menu/contact-route.webp", alt: "İstanbul yolunda servis aracı" },
+    ],
     links: [
       ["Teklif ve iletişim", "/#iletisim"],
       ["Şoför başvurusu", "/sofor-basvuru"],
@@ -89,8 +105,26 @@ export function Header() {
               </button>
               <div className="mega-panel">
                 <div className="mega-intro">
-                  <span>{group.eyebrow}</span>
-                  <strong>{group.label}</strong>
+                  <Image
+                    src={group.images[0].src}
+                    alt={group.images[0].alt}
+                    fill
+                    sizes="380px"
+                    className="mega-intro-image"
+                  />
+                  <div className="mega-intro-shade" />
+                  <div className="mega-intro-thumb">
+                    <Image
+                      src={group.images[1].src}
+                      alt={group.images[1].alt}
+                      fill
+                      sizes="108px"
+                    />
+                  </div>
+                  <div className="mega-intro-copy">
+                    <span>{group.eyebrow}</span>
+                    <strong>{group.label}</strong>
+                  </div>
                 </div>
                 <div className="mega-links">
                   {group.links.map(([label, href], index) => (
@@ -134,6 +168,14 @@ export function Header() {
             <details key={group.label} className="mobile-group">
               <summary>{group.label}<span aria-hidden="true">+</span></summary>
               <div>
+                <div className="mobile-menu-visual">
+                  <Image
+                    src={group.images[0].src}
+                    alt={group.images[0].alt}
+                    fill
+                    sizes="calc(100vw - 48px)"
+                  />
+                </div>
                 {group.links.map(([label, href]) => (
                   <Link key={`${label}-${href}`} href={href} onClick={closeMobile}>{label}</Link>
                 ))}

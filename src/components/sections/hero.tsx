@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section className="hero-section text-white">
       <Image
-        src="/images/hero-fleet.png"
+        src="/images/home/hero-personnel.webp"
         alt="Karaaslan Turizm servis araçları İstanbul'da"
         fill
         priority

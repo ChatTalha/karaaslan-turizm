@@ -18,24 +18,24 @@ const tabs: CorporateTab[] = [
     id: "hakkimizda",
     label: "Hakkımızda",
     eyebrow: "Karaaslan Turizm",
-    title: "Yeni bir firma, uzun soluklu bir yolculuk.",
+    title: "Güvenilir hizmet, zamanında ulaşım.",
     paragraphs: [
-      "Karaaslan Turizm, İstanbul'da personel, öğrenci ve organizasyon taşımacılığı alanlarında güvenilir çözümler sunmak amacıyla 2025 yılında kuruldu. Trafiğin yoğun olduğu bir şehirde zamanın değerini biliyor; yolcuları işlerine, okullarına ve sevdiklerine güvenle ulaştırmayı temel sorumluluğumuz olarak görüyoruz.",
-      "Genç ve dinamik yapımızı, planlı operasyon ve güçlü iletişimle destekliyoruz. Araç filomuzu ve hizmet ağımızı ihtiyaçlara göre kontrollü biçimde büyütürken her yeni yolculukta kalite standardımızı yükseltmeyi hedefliyoruz.",
-      "Müşterilerimizin beklentilerini dinleyen, değişen koşullara hızla uyum sağlayan ve uzun vadeli iş ortaklıkları kuran bir ulaşım markası olmak için çalışıyoruz.",
+      "Karaaslan Turizm, personel servis taşımacılığı alanında güvenilir, planlı ve profesyonel hizmet sunmak amacıyla faaliyet gösteren kurumsal bir ulaşım firmasıdır. Ankara'da yaşadığımız dönemin ardından İstanbul'a taşınarak taşımacılık sektöründe faaliyet göstermeye başladık ve hizmet anlayışımızı güven, disiplin ve sorumluluk ilkeleri üzerine inşa ettik.",
+      "Kurumsal firmaların personel ulaşım süreçlerini en verimli şekilde yönetmek için modern araç filomuz, düzenli bakımları yapılan servis araçlarımız ve deneyimli sürücü kadromuz ile hizmet vermekteyiz. Zamanında ulaşım, yolcu güvenliği ve operasyonel süreklilik, çalışmalarımızın temelini oluşturmaktadır.",
+      "Müşterilerimizle kurduğumuz her iş birliğini uzun vadeli bir ortaklık olarak görüyor; şeffaf, çözüm odaklı ve sürdürülebilir hizmet anlayışımızla değer üretmeyi hedefliyoruz. Karaaslan Turizm olarak amacımız, yalnızca personel taşımacılığı yapan bir firma olmak değil, işletmelerin güvenle tercih ettiği kurumsal bir çözüm ortağı haline gelmektir.",
     ],
   },
   {
     id: "misyon-vizyon",
     label: "Misyon ve Vizyon",
-    eyebrow: "Rotamız",
-    title: "Güvenle büyüyen bir ulaşım markası.",
+    eyebrow: "Misyonumuz",
+    title: "Kurumsal ulaşım süreçlerine değer katıyoruz.",
     paragraphs: [
-      "Kendimizi sürekli yenileyerek müşteri memnuniyetini ve yolcu güvenliğini en önemli hedef olarak görmek; ulaşımda kaliteyi, dakikliği ve güveni bir arada sunarken kontrollü büyümek ve istihdama katkı sağlamaktır.",
+      "Karaaslan Turizm olarak misyonumuz; personel servis taşımacılığı alanında güvenli, zamanında ve yüksek standartlarda ulaşım hizmeti sunarak kurumsal müşterilerimizin operasyonel süreçlerine değer katmaktır. Yolcu güvenliğini, hizmet kalitesini ve müşteri memnuniyetini her zaman ön planda tutuyor; disiplinli çalışma anlayışımız, deneyimli kadromuz ve düzenli bakımları yapılan araç filomuz ile sürdürülebilir ve güvenilir taşımacılık çözümleri sunuyoruz.",
     ],
     secondary: {
       title: "Vizyonumuz",
-      text: "Ulaşım hizmetlerinde örnek gösterilen, teknolojiyi etkin kullanan ve müşteri beklentilerinin üzerinde çözümler üreten bir marka olmak; hizmet ağımızı önce Türkiye'de, ardından uluslararası pazarlarda sürdürülebilir biçimde genişletmektir.",
+      text: "Vizyonumuz; İstanbul başta olmak üzere Türkiye genelinde kurumsal taşımacılık sektöründe güvenilirliği, hizmet kalitesi ve profesyonel yaklaşımıyla örnek gösterilen öncü firmalardan biri olmaktır. Sürekli gelişen hizmet anlayışımız, güçlü operasyon yapımız ve uzun vadeli iş ortaklıklarımızla sektöre değer katan, saygın ve kalıcı bir marka olmayı hedefliyoruz.",
     },
   },
   {
