@@ -4,10 +4,43 @@ import Link from "next/link";
 import { SiteCta } from "@/components/sections/site-cta";
 
 export const metadata: Metadata = {
-  title: "Personel Taşımacılığı",
+  title: "İstanbul Personel Servisi ve Personel Taşımacılığı",
   description:
-    "Karaaslan Turizm personel taşımacılığı; eğitimli sürücüler, düzenli denetimler ve mevzuata uygun araçlarla güvenli ulaşım.",
+    "İstanbul personel servisi ve kurumsal personel taşımacılığı için eğitimli sürücüler, düzenli denetimler ve mevzuata uygun araçlarla güvenli ulaşım.",
   alternates: { canonical: "/personel-tasimaciligi" },
+};
+
+const personnelGallery = [
+  {
+    image: "/images/personnel/personnel-boarding.png",
+    label: "Vardiya ulaşımı",
+    title: "Personelinizi çalışma saatlerine uygun planla taşıyoruz.",
+  },
+  {
+    image: "/images/personnel/personnel-route.png",
+    label: "Planlı güzergâh",
+    title: "İstanbul genelinde güvenli ve zamanında servis.",
+  },
+  {
+    image: "/images/personnel/personnel-fleet.png",
+    label: "Saha operasyonu",
+    title: "Farklı kapasitelere uygun modern araç çözümleri.",
+  },
+];
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "İstanbul Personel Servisi ve Personel Taşımacılığı",
+  serviceType: "Kurumsal personel taşımacılığı",
+  url: "https://www.karaaslanturizm.com/personel-tasimaciligi",
+  areaServed: { "@type": "City", name: "İstanbul" },
+  provider: {
+    "@type": "LocalBusiness",
+    "@id": "https://www.karaaslanturizm.com/#business",
+    name: "Karaaslan Turizm",
+    telephone: "+90 501 174 41 66",
+  },
 };
 
 const auditItems = [
@@ -47,6 +80,10 @@ const requiredDocuments = [
 export default function PersonnelTransportationPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd).replace(/</g, "\\u003c") }}
+      />
       <section className="detail-hero">
         <Image
           src="/images/personnel-service.png"
@@ -75,6 +112,22 @@ export default function PersonnelTransportationPage() {
           Sürücüden araca, planlamadan saha kontrolüne kadar her aşamada güvenli ve
           sürdürülebilir bir hizmet standardı oluşturmayı hedefliyoruz.
         </p>
+      </section>
+
+      <section className="section-wrap personnel-field-section" aria-labelledby="personnel-field-title">
+        <div className="personnel-field-heading">
+          <p className="eyebrow">Sahada personel taşımacılığı</p>
+          <h2 id="personnel-field-title">İşletmenizin temposuna uyum sağlayan servis planı.</h2>
+          <p>Güzergâhları, vardiya saatlerini ve araç kapasitesini birlikte değerlendirerek kesintisiz bir ulaşım operasyonu kuruyoruz.</p>
+        </div>
+        <div className="personnel-field-gallery">
+          {personnelGallery.map((item, index) => (
+            <figure key={item.image} className={index === 0 ? "personnel-field-card personnel-field-main" : "personnel-field-card"}>
+              <Image src={item.image} alt={item.title} fill sizes="(max-width: 720px) 100vw, 60vw" />
+              <figcaption><span>{item.label}</span><strong>{item.title}</strong></figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       <section className="section-wrap detail-grid">

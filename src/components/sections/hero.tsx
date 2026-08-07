@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HeroBackgroundVideo } from "@/components/sections/hero-background-video";
 
 export function Hero() {
   return (
@@ -12,19 +13,7 @@ export function Hero() {
         sizes="100vw"
         className="hero-photo"
       />
-      <video
-        className="hero-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster="/images/home/hero-personnel.webp"
-        aria-hidden="true"
-        tabIndex={-1}
-      >
-        <source src="/videos/karaaslan-hero.mp4" type="video/mp4" />
-      </video>
+      <HeroBackgroundVideo />
       <div className="hero-shade" />
       <div className="section-wrap relative z-10 flex min-h-[680px] items-center py-24">
         <div className="max-w-3xl">

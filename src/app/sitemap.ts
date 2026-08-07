@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const siteUrl = "https://www.karaaslanturizm.com";
-const lastModified = new Date("2026-08-07");
+const lastModified = new Date("2026-08-08");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

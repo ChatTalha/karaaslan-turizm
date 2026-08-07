@@ -195,7 +195,7 @@ export function Header() {
         <a href="tel:+905011744166" className="header-call">
           <span className="header-call-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7.2 3.5 9.6 7.8 7.9 9.5c.9 2.2 2.7 4 4.9 4.9l1.7-1.7 4.3 2.4c.3.2.5.5.4.9-.3 2.3-2.2 4-4.5 4C8.8 20 4 15.2 4 9.3 4 7 5.7 5.1 8 4.8c.4-.1.8.1.9.4Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M6.54 5.11 8.7 8.65a1 1 0 0 1-.16 1.22l-1.32 1.32a14.4 14.4 0 0 0 5.59 5.59l1.32-1.32a1 1 0 0 1 1.22-.16l3.54 2.16a1 1 0 0 1 .46 1.08l-.38 1.75a2 2 0 0 1-1.96 1.57C8.77 21.86 2.14 15.23 2.14 7a2 2 0 0 1 1.57-1.96l1.75-.38a1 1 0 0 1 1.08.45Z" fill="currentColor" />
             </svg>
           </span>
           <span className="header-call-copy">

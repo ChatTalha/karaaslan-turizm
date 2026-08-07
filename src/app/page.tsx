@@ -37,6 +37,11 @@ const strengths = [
 
 const gallery = [
   {
+    image: "/images/personnel/personnel-boarding.png",
+    label: "Personel taşımacılığı",
+    title: "Vardiya ve mesai saatlerine planlı ulaşım",
+  },
+  {
     image: "/images/home/school-fiat.webp",
     label: "Okul taşımacılığı",
     title: "Öğrenciler için kontrollü ulaşım",
@@ -65,12 +70,14 @@ export default function Home() {
 
       <section id="kurumsal" className="home-about">
         <div className="section-wrap home-about-panel">
-          <Image
-            src="/images/home/about-company-team.png"
-            alt="Karaaslan Turizm ekibi, servis araçları ve şirket binası"
-            fill
-            sizes="(max-width: 720px) calc(100vw - 28px), 1180px"
-          />
+          <div className="home-about-visual">
+            <Image
+              src="/images/home/about-company-team.png"
+              alt="Karaaslan Turizm ekibi, servis araçları ve şirket binası"
+              fill
+              sizes="(max-width: 720px) calc(100vw - 28px), 1180px"
+            />
+          </div>
           <div className="home-about-shade" />
           <div className="home-about-copy">
             <p className="eyebrow">Hakkımızda</p>
@@ -109,7 +116,7 @@ export default function Home() {
           {strengths.map(({ title, description, icon }) => (
             <article key={title}>
               <span className="strength-token" aria-hidden="true">
-                <Image src={icon} alt="" fill sizes="72px" />
+                <Image src={icon} alt="" fill sizes="196px" />
               </span>
               <h3>{title}</h3>
               <p>{description}</p>
