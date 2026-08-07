@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { SiteCta } from "@/components/sections/site-cta";
 
 export const metadata: Metadata = {
   title: "Personel Taşımacılığı",
   description:
     "Karaaslan Turizm personel taşımacılığı; eğitimli sürücüler, düzenli denetimler ve mevzuata uygun araçlarla güvenli ulaşım.",
+  alternates: { canonical: "/personel-tasimaciligi" },
 };
 
 const auditItems = [
@@ -114,9 +116,13 @@ export default function PersonnelTransportationPage() {
           </ul>
         </article>
 
-        <article className="detail-card detail-card-image">
+        <article className="detail-card detail-card-image detail-card-wide">
           <Image src="/images/safe-driving.png" alt="Güvenli sürüş standardı" fill sizes="(max-width: 768px) 100vw, 50vw" />
-          <div><span>04</span><h2>Kontrollü yolculuk</h2></div>
+          <div>
+            <span>04</span>
+            <h2>Kontrollü yolculuk</h2>
+            <p>Her seferi dikkatli sürüş, düzenli araç takibi ve yolcu güvenliğini önceleyen bir operasyon anlayışıyla yönetiyoruz.</p>
+          </div>
         </article>
 
         <article className="detail-card detail-card-wide">
@@ -145,16 +151,7 @@ export default function PersonnelTransportationPage() {
         </article>
       </section>
 
-      <section className="detail-cta">
-        <div className="section-wrap">
-          <p className="eyebrow text-red-400">Karaaslan Turizm</p>
-          <h2>Personel ulaşımınızı birlikte planlayalım.</h2>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <a href="tel:+905011744166" className="button-primary">+90 501 174 41 66</a>
-            <a href="mailto:info@karaaslanturizm.com" className="button-outline-dark">info@karaaslanturizm.com</a>
-          </div>
-        </div>
-      </section>
+      <SiteCta title="Personel ulaşımınızı birlikte planlayalım." />
     </main>
   );
 }

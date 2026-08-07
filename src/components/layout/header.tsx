@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const menuGroups = [
@@ -42,9 +43,9 @@ const menuGroups = [
       { src: "/images/menu/fleet-sunset.webp", alt: "Mercedes ve Fiat servis araçları" },
     ],
     links: [
-      ["Mercedes Sprinter 19+1", "/#filomuz"],
-      ["Fiat Ducato 16+1", "/#filomuz"],
-      ["Tüm araçları inceleyin", "/#filomuz"],
+      ["Mercedes Sprinter 19+1", "/filomuz#mercedes-sprinter"],
+      ["Fiat Ducato 16+1", "/filomuz#fiat-ducato"],
+      ["Tüm araçları inceleyin", "/filomuz"],
     ],
   },
   {
@@ -63,18 +64,47 @@ const menuGroups = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [pinnedMenu, setPinnedMenu] = useState<string | null>(null);
+  const closeMenus = () => {
+    setMobileOpen(false);
+    setActiveMenu(null);
+    setPinnedMenu(null);
+  };
   const closeMobile = () => setMobileOpen(false);
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setActiveMenu(null);
+      if (event.key === "Escape") closeMenus();
+    };
+
+    const closeOnOutsideClick = (event: PointerEvent) => {
+      if (!(event.target as Element).closest(".mega-item")) {
+        setActiveMenu(null);
+        setPinnedMenu(null);
+      }
     };
 
     window.addEventListener("keydown", closeOnEscape);
-    return () => window.removeEventListener("keydown", closeOnEscape);
+    window.addEventListener("pointerdown", closeOnOutsideClick);
+    return () => {
+      window.removeEventListener("keydown", closeOnEscape);
+      window.removeEventListener("pointerdown", closeOnOutsideClick);
+    };
   }, []);
+
+  const handleMenuLink = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    closeMenus();
+    if (pathname === "/kurumsal" && href.startsWith("/kurumsal#")) {
+      event.preventDefault();
+      const hash = href.split("#")[1];
+      window.history.pushState(null, "", `#${hash}`);
+      window.dispatchEvent(new HashChangeEvent("hashchange"));
+      document.querySelector(".corporate-tabs-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <header className="site-header">
@@ -90,16 +120,20 @@ export function Header() {
               key={group.label}
               className={`mega-item ${activeMenu === group.label ? "is-open" : ""}`}
               onMouseEnter={() => setActiveMenu(group.label)}
-              onMouseLeave={() => setActiveMenu(null)}
+              onMouseLeave={() => setActiveMenu(pinnedMenu)}
               onBlur={(event) => {
-                if (!event.currentTarget.contains(event.relatedTarget as Node)) setActiveMenu(null);
+                if (!event.currentTarget.contains(event.relatedTarget as Node)) setActiveMenu(pinnedMenu);
               }}
             >
               <button
                 type="button"
                 aria-expanded={activeMenu === group.label}
                 onFocus={() => setActiveMenu(group.label)}
-                onClick={() => setActiveMenu((current) => current === group.label ? null : group.label)}
+                onClick={() => {
+                  const shouldClose = pinnedMenu === group.label;
+                  setPinnedMenu(shouldClose ? null : group.label);
+                  setActiveMenu(shouldClose ? null : group.label);
+                }}
               >
                 {group.label}
               </button>
@@ -128,7 +162,7 @@ export function Header() {
                 </div>
                 <div className="mega-links">
                   {group.links.map(([label, href], index) => (
-                    <Link key={`${label}-${href}`} href={href} onClick={() => setActiveMenu(null)}>
+                    <Link key={`${label}-${href}`} href={href} onClick={(event) => handleMenuLink(event, href)}>
                       <span>0{index + 1}</span>{label}
                     </Link>
                   ))}
@@ -140,12 +174,13 @@ export function Header() {
 
         <nav className="header-socials" aria-label="Sosyal medya hesapları">
           <a
+            className="instagram-link"
             href="https://www.instagram.com/karaaslan.turizm/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Karaaslan Turizm Instagram hesabı"
           >
-            IG
+            <span className="instagram-mark" aria-hidden="true"><span /></span>
           </a>
           <a
             href="https://x.com/karaaslan_trzm"
@@ -207,7 +242,9 @@ export function Header() {
           </div>
           <nav className="mobile-socials" aria-label="Sosyal medya hesapları">
             <span>Bizi takip edin</span>
-            <a href="https://www.instagram.com/karaaslan.turizm/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a className="mobile-instagram-link" href="https://www.instagram.com/karaaslan.turizm/" target="_blank" rel="noopener noreferrer">
+              <span className="instagram-mark" aria-hidden="true"><span /></span> Instagram
+            </a>
             <a href="https://x.com/karaaslan_trzm" target="_blank" rel="noopener noreferrer">X</a>
           </nav>
         </div>

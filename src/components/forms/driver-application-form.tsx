@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { FormEvent } from "react";
 
 const fieldGroups = [
@@ -46,15 +47,20 @@ export function DriverApplicationForm() {
     const form = new FormData(event.currentTarget);
     const lines = [
       "Karaaslan Turizm - Şoför Başvurusu",
-      "",
+      "====================================",
       ...fieldGroups.flatMap((group) => [
-        `*${group.title}*`,
-        ...group.fields.map(([name, label]) => `${label}: ${String(form.get(name) || "Belirtilmedi")}`),
         "",
+        group.title.toUpperCase(),
+        "------------------------------------",
+        ...group.fields.map(([name, label]) => `${label}: ${String(form.get(name) || "Belirtilmedi")}`),
       ]),
+      "",
+      "EK BİLGİLER",
+      "------------------------------------",
       `Ek Not: ${String(form.get("note") || "Belirtilmedi")}`,
     ];
-    window.open(`https://wa.me/905011744166?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener,noreferrer");
+    const subject = `Şoför Başvurusu - ${String(form.get("fullName") || "Yeni Aday")}`;
+    window.location.href = `mailto:info@karaaslanturizm.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
   };
 
   return (
@@ -81,16 +87,16 @@ export function DriverApplicationForm() {
         </label>
         <label className="application-consent">
           <input type="checkbox" required />
-          <span>Başvuru bilgilerimin değerlendirme amacıyla WhatsApp üzerinden Karaaslan Turizm&apos;e iletilmesini kabul ediyorum.</span>
+          <span><Link href="/kvkk-aydinlatma-metni" target="_blank">KVKK Aydınlatma Metni&apos;ni</Link> okudum ve başvuru bilgilerimin değerlendirme amacıyla e-posta üzerinden Karaaslan Turizm&apos;e iletileceği konusunda bilgilendirildim.</span>
         </label>
       </fieldset>
 
       <div className="application-submit">
         <div>
           <strong>Başvurunuz hazır mı?</strong>
-          <span>Gönder düğmesi WhatsApp&apos;ı açar; bilgiler site üzerinde saklanmaz.</span>
+          <span>Gönder düğmesi e-posta uygulamanızı açar; bilgiler site üzerinde saklanmaz.</span>
         </div>
-        <button type="submit">WhatsApp ile gönder <span aria-hidden="true">→</span></button>
+        <button type="submit">E-posta ile gönder <span aria-hidden="true">→</span></button>
       </div>
     </form>
   );

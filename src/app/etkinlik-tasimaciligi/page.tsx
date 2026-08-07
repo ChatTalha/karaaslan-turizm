@@ -4,6 +4,7 @@ import { ServiceDetail } from "@/components/sections/service-detail";
 export const metadata: Metadata = {
   title: "Etkinlik ve Organizasyon Taşımacılığı",
   description: "Toplantı, fuar, gezi ve organizasyonlara özel Karaaslan Turizm ulaşım çözümleri.",
+  alternates: { canonical: "/etkinlik-tasimaciligi" },
 };
 
 const sections = [

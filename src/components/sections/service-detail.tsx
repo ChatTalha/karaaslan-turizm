@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SiteCta } from "@/components/sections/site-cta";
 
 type DetailSection = {
   title: string;
@@ -38,7 +39,7 @@ export function ServiceDetail({ eyebrow, title, intro, image, imageAlt, statemen
 
       <section className="section-wrap service-detail-grid">
         {sections.map((section, index) => (
-          <article key={section.title} className={index === 0 ? "service-detail-panel service-detail-panel-featured" : "service-detail-panel"}>
+          <article key={section.title} className={index === 0 || index === 3 ? "service-detail-panel service-detail-panel-featured" : "service-detail-panel"}>
             <span>0{index + 1}</span>
             <h2>{section.title}</h2>
             <p>{section.description}</p>
@@ -51,16 +52,7 @@ export function ServiceDetail({ eyebrow, title, intro, image, imageAlt, statemen
         ))}
       </section>
 
-      <section className="detail-cta">
-        <div className="section-wrap">
-          <p className="eyebrow text-red-400">Karaaslan Turizm</p>
-          <h2>Ulaşım planınızı birlikte oluşturalım.</h2>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <a href="tel:+905011744166" className="button-primary">+90 501 174 41 66</a>
-            <a href="mailto:info@karaaslanturizm.com" className="button-outline-dark">info@karaaslanturizm.com</a>
-          </div>
-        </div>
-      </section>
+      <SiteCta />
     </main>
   );
 }

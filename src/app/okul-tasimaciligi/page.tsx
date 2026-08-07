@@ -3,7 +3,8 @@ import { ServiceDetail } from "@/components/sections/service-detail";
 
 export const metadata: Metadata = {
   title: "Okul Taşımacılığı",
-  description: "Karaaslan Turizm güvenli ve planlı okul servisi taşımacılığı hizmetleri.",
+  description: "İstanbul'da güvenli, planlı ve kontrollü okul servisi ile öğrenci taşımacılığı hizmetleri.",
+  alternates: { canonical: "/okul-tasimaciligi" },
 };
 
 const sections = [

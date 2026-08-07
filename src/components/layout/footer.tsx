@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -11,6 +12,12 @@ export function Footer() {
           <nav className="footer-socials" aria-label="Sosyal medya bağlantıları">
             <a href="https://www.instagram.com/karaaslan.turizm/" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="https://x.com/karaaslan_trzm" target="_blank" rel="noopener noreferrer">X</a>
+          </nav>
+          <nav className="footer-legal" aria-label="Yasal bilgilendirmeler">
+            <Link href="/gizlilik-politikasi">Gizlilik Politikası</Link>
+            <Link href="/kvkk-aydinlatma-metni">KVKK Aydınlatma Metni</Link>
+            <Link href="/cerez-politikasi">Çerez Politikası</Link>
+            <Link href="/site-kullanim-kosullari">Site Kullanım Koşulları</Link>
           </nav>
           <p className="text-sm">© {new Date().getFullYear()} Karaaslan Turizm. Tüm hakları saklıdır.</p>
         </div>

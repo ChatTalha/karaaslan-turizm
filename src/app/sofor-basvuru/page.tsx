@@ -5,6 +5,7 @@ import { DriverApplicationForm } from "@/components/forms/driver-application-for
 export const metadata: Metadata = {
   title: "Şoför Başvurusu",
   description: "Karaaslan Turizm şoför iş başvuru formu.",
+  alternates: { canonical: "/sofor-basvuru" },
 };
 
 export default function DriverApplicationPage() {

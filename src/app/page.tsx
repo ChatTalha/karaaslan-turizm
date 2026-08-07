@@ -1,7 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
 import { ServiceShowcase } from "@/components/sections/service-showcase";
+import { ContactCards } from "@/components/sections/contact-cards";
+
+export const metadata: Metadata = {
+  title: "İstanbul Personel ve Öğrenci Taşımacılığı",
+  description:
+    "Karaaslan Turizm; İstanbul'da personel servisi, okul taşımacılığı ve etkinlik transferi için güvenli, planlı ve zamanında ulaşım hizmeti sunar.",
+  alternates: { canonical: "/" },
+};
 
 const strengths = [
   ["Güvenli Ulaşım", "Araçlarımız düzenli bakımdan geçer ve yasal gerekliliklere uygundur."],
@@ -89,10 +98,6 @@ export default function Home() {
                 sizes="(max-width: 900px) 46vw, 270px"
               />
             </div>
-            <div className="home-about-stamp">
-              <strong>2025</strong>
-              <span>İstanbul&apos;da<br />güvenle yoldayız</span>
-            </div>
           </div>
         </div>
 
@@ -138,18 +143,18 @@ export default function Home() {
           <p>Farklı kapasite ihtiyaçlarına uygun, bakımlı ve konforlu araç seçenekleri.</p>
         </div>
         <div className="fleet-grid">
-          <article className="fleet-card">
+          <Link href="/filomuz#mercedes-sprinter" className="fleet-card">
             <div className="fleet-image"><Image src="/images/home/fleet-mercedes.webp" alt="Mercedes Sprinter servis aracı" fill sizes="(max-width: 900px) 100vw, 34vw" /></div>
             <div className="fleet-copy"><p className="eyebrow">19+1 yolcu</p><h3>Mercedes Sprinter</h3><span>Yüksek konfor ve geniş iç hacim</span></div>
-          </article>
-          <article className="fleet-card">
+          </Link>
+          <Link href="/filomuz#fiat-ducato" className="fleet-card">
             <div className="fleet-image"><Image src="/images/home/fleet-fiat.webp" alt="Fiat Ducato servis aracı" fill sizes="(max-width: 900px) 100vw, 34vw" /></div>
             <div className="fleet-copy"><p className="eyebrow">16+1 yolcu</p><h3>Fiat Ducato</h3><span>Şehir içi ulaşım için ideal çözüm</span></div>
-          </article>
-          <article className="fleet-card fleet-card-wide">
+          </Link>
+          <Link href="/filomuz" className="fleet-card fleet-card-wide">
             <div className="fleet-image"><Image src="/images/home/fleet-duo.webp" alt="Karaaslan Turizm Mercedes ve Fiat araç filosu" fill sizes="(max-width: 900px) 100vw, 34vw" /></div>
             <div className="fleet-copy"><p className="eyebrow">Esnek kapasite</p><h3>Kurumsal araç filosu</h3><span>İhtiyacınıza uygun araç ve güzergâh planlaması</span></div>
-          </article>
+          </Link>
         </div>
       </section>
 
@@ -192,17 +197,7 @@ export default function Home() {
             </div>
             <p>Personel, öğrenci ve etkinlik taşımacılığı için hızlıca teklif alın. Ekibimize katılmak istiyorsanız şoför başvuru formunu doldurun.</p>
           </div>
-          <div className="contact-grid">
-            <a href="tel:+905011744166" className="contact-card">
-              <span>01 / Telefon</span><strong>+90 501 174 41 66</strong><small>Hemen arayın →</small>
-            </a>
-            <a href="mailto:info@karaaslanturizm.com" className="contact-card">
-              <span>02 / E-posta</span><strong>info@karaaslanturizm.com</strong><small>E-posta gönderin →</small>
-            </a>
-            <a href="https://wa.me/905011744166" className="contact-card contact-card-red">
-              <span>03 / WhatsApp</span><strong>Hızlı iletişim</strong><small>Mesaj gönderin →</small>
-            </a>
-          </div>
+          <ContactCards />
           <div className="career-banner">
             <div><span>Kariyer fırsatı</span><h3>Şoför ekibimize katılmak ister misiniz?</h3><p>Bilgilerinizi kısa formumuzla iletin; uygun pozisyonlarda sizinle iletişime geçelim.</p></div>
             <Link href="/sofor-basvuru">Başvuru formunu aç <span aria-hidden="true">→</span></Link>

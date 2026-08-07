@@ -12,6 +12,19 @@ export function Hero() {
         sizes="100vw"
         className="hero-photo"
       />
+      <video
+        className="hero-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/images/home/hero-personnel.webp"
+        aria-hidden="true"
+        tabIndex={-1}
+      >
+        <source src="/videos/karaaslan-hero.mp4" type="video/mp4" />
+      </video>
       <div className="hero-shade" />
       <div className="section-wrap relative z-10 flex min-h-[680px] items-center py-24">
         <div className="max-w-3xl">

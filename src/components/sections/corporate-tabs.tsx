@@ -150,10 +150,10 @@ export function CorporateTabs() {
             {active.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </div>
           {active.secondary && (
-            <div className="corporate-secondary-card">
-              <span>02</span>
-              <div><h3>{active.secondary.title}</h3><p>{active.secondary.text}</p></div>
-            </div>
+            <section className="corporate-followup-section">
+              <h3>{active.secondary.title}</h3>
+              <p>{active.secondary.text}</p>
+            </section>
           )}
           {active.items && (
             <ul className="corporate-check-list">
