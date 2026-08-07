@@ -138,15 +138,15 @@ export function Header() {
                 {group.label}
               </button>
               <div className="mega-panel">
+                <Image
+                  src={group.images[0].src}
+                  alt={group.images[0].alt}
+                  fill
+                  sizes="680px"
+                  className="mega-panel-image"
+                />
+                <div className="mega-panel-shade" />
                 <div className="mega-intro">
-                  <Image
-                    src={group.images[0].src}
-                    alt={group.images[0].alt}
-                    fill
-                    sizes="380px"
-                    className="mega-intro-image"
-                  />
-                  <div className="mega-intro-shade" />
                   <div className="mega-intro-thumb">
                     <Image
                       src={group.images[1].src}
