@@ -138,6 +138,25 @@ export function Header() {
           ))}
         </nav>
 
+        <nav className="header-socials" aria-label="Sosyal medya hesapları">
+          <a
+            href="https://www.instagram.com/karaaslan.turizm/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Karaaslan Turizm Instagram hesabı"
+          >
+            IG
+          </a>
+          <a
+            href="https://x.com/karaaslan_trzm"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Karaaslan Turizm X hesabı"
+          >
+            X
+          </a>
+        </nav>
+
         <a href="tel:+905011744166" className="header-call">
           <span className="header-call-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none">
@@ -186,6 +205,11 @@ export function Header() {
             <a href="tel:+905011744166">Hemen arayın</a>
             <Link href="/sofor-basvuru" onClick={closeMobile}>Şoför başvurusu</Link>
           </div>
+          <nav className="mobile-socials" aria-label="Sosyal medya hesapları">
+            <span>Bizi takip edin</span>
+            <a href="https://www.instagram.com/karaaslan.turizm/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://x.com/karaaslan_trzm" target="_blank" rel="noopener noreferrer">X</a>
+          </nav>
         </div>
       </div>
     </header>

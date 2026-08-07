@@ -45,14 +45,26 @@ export default function Home() {
             <h2>Kurumların güvenle tercih ettiği ulaşım ortağı.</h2>
             <p>
               Karaaslan Turizm, personel servis taşımacılığı alanında güvenilir,
-              planlı ve profesyonel hizmet sunmak amacıyla 2025 yılında faaliyete
-              başladı. İstanbul&apos;daki ulaşım süreçlerini güven, disiplin ve
-              sorumluluk ilkeleriyle yönetiyoruz.
+              planlı ve profesyonel hizmet sunmak amacıyla faaliyet gösteren
+              kurumsal bir ulaşım firmasıdır. Ankara&apos;da yaşadığımız dönemin
+              ardından İstanbul&apos;a taşınarak taşımacılık sektöründe faaliyet
+              göstermeye başladık ve hizmet anlayışımızı güven, disiplin ve
+              sorumluluk ilkeleri üzerine inşa ettik.
             </p>
             <p>
-              Modern araç filomuz, düzenli bakımları yapılan servis araçlarımız ve
-              deneyimli sürücü kadromuzla her iş birliğini uzun vadeli bir ortaklık
-              olarak görüyoruz.
+              Kurumsal firmaların personel ulaşım süreçlerini en verimli şekilde
+              yönetmek için modern araç filomuz, düzenli bakımları yapılan servis
+              araçlarımız ve deneyimli sürücü kadromuz ile hizmet vermekteyiz.
+              Zamanında ulaşım, yolcu güvenliği ve operasyonel süreklilik,
+              çalışmalarımızın temelini oluşturmaktadır.
+            </p>
+            <p>
+              Müşterilerimizle kurduğumuz her iş birliğini uzun vadeli bir ortaklık
+              olarak görüyor; şeffaf, çözüm odaklı ve sürdürülebilir hizmet
+              anlayışımızla değer üretmeyi hedefliyoruz. Karaaslan Turizm olarak
+              amacımız, yalnızca personel taşımacılığı yapan bir firma olmak değil,
+              işletmelerin güvenle tercih ettiği kurumsal bir çözüm ortağı haline
+              gelmektir.
             </p>
             <div className="home-about-actions">
               <Link href="/kurumsal" className="button-primary">Bizi tanıyın</Link>
