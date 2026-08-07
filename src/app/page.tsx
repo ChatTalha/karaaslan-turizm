@@ -13,10 +13,26 @@ export const metadata: Metadata = {
 };
 
 const strengths = [
-  ["Güvenli Ulaşım", "Araçlarımız düzenli bakımdan geçer ve yasal gerekliliklere uygundur."],
-  ["Zamanında Hizmet", "Planlanan saatlere bağlı, aksama yaşanmadan hizmet sunuyoruz."],
-  ["Deneyimli Kadro", "Alanında uzman şoför ve operasyon ekibimizle yanınızdayız."],
-  ["Şehir İçi Hizmet", "İstanbul şehir içi taşımacılık ihtiyaçlarına özel çözümler üretiyoruz."],
+  {
+    title: "Güvenli Ulaşım",
+    description: "Araçlarımız düzenli bakımdan geçer ve yasal gerekliliklere uygundur.",
+    icon: "/images/tokens/safe-service.png",
+  },
+  {
+    title: "Zamanında Hizmet",
+    description: "Planlanan saatlere bağlı, aksama yaşanmadan hizmet sunuyoruz.",
+    icon: "/images/tokens/on-time-service.png",
+  },
+  {
+    title: "Deneyimli Kadro",
+    description: "Alanında uzman şoför ve operasyon ekibimizle yanınızdayız.",
+    icon: "/images/tokens/experienced-team.png",
+  },
+  {
+    title: "Şehir İçi Hizmet",
+    description: "İstanbul şehir içi taşımacılık ihtiyaçlarına özel çözümler üretiyoruz.",
+    icon: "/images/tokens/city-service.png",
+  },
 ];
 
 const gallery = [
@@ -48,7 +64,14 @@ export default function Home() {
       <Hero />
 
       <section id="kurumsal" className="home-about">
-        <div className="section-wrap home-about-grid">
+        <div className="section-wrap home-about-panel">
+          <Image
+            src="/images/home/about-company-team.png"
+            alt="Karaaslan Turizm ekibi, servis araçları ve şirket binası"
+            fill
+            sizes="(max-width: 720px) calc(100vw - 28px), 1180px"
+          />
+          <div className="home-about-shade" />
           <div className="home-about-copy">
             <p className="eyebrow">Hakkımızda</p>
             <h2>Kurumların güvenle tercih ettiği ulaşım ortağı.</h2>
@@ -80,31 +103,14 @@ export default function Home() {
               <span>Güvenilir hizmet<br />Zamanında ulaşım</span>
             </div>
           </div>
-
-          <div className="home-about-media">
-            <div className="home-about-photo home-about-photo-main">
-              <Image
-                src="/images/home/about-team.webp"
-                alt="Karaaslan Turizm ekibi ve servis araçları"
-                fill
-                sizes="(max-width: 900px) 100vw, 52vw"
-              />
-            </div>
-            <div className="home-about-photo home-about-photo-detail">
-              <Image
-                src="/images/home/about-driver.webp"
-                alt="Karaaslan Turizm sürücüsü İstanbul güzergâhında"
-                fill
-                sizes="(max-width: 900px) 46vw, 270px"
-              />
-            </div>
-          </div>
         </div>
 
         <div className="section-wrap home-strengths">
-          {strengths.map(([title, description], index) => (
+          {strengths.map(({ title, description, icon }) => (
             <article key={title}>
-              <span>0{index + 1}</span>
+              <span className="strength-token" aria-hidden="true">
+                <Image src={icon} alt="" fill sizes="72px" />
+              </span>
               <h3>{title}</h3>
               <p>{description}</p>
             </article>
